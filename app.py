@@ -6,7 +6,7 @@ from phonenumbers import geocoder, carrier, timezone
 from flask import Flask, render_template, request
 
 # -------------------------------
-# Function to get public IPs
+# Function to get public IPs (fallback using ipify)
 # -------------------------------
 def get_public_ip():
     ipv4, ipv6 = None, None
@@ -106,11 +106,17 @@ def show_results():
     results_data = {}
 
     if lookup_type == 'my_ips':
-        ipv4, ipv6 = get_public_ip()
+        # ✅ Get visitor’s real IP from Flask request
+        client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+        ipv4, ipv6 = get_public_ip()  # fallback
         results_data['local_ip'] = get_local_ip()
-        results_data['public_ipv4'] = ipv4
+        results_data['public_ipv4'] = client_ip or ipv4
         results_data['public_ipv6'] = ipv6
-        if ipv4:
+
+        if client_ip:
+            results_data.update(get_ip_details(client_ip))
+        elif ipv4:
             results_data.update(get_ip_details(ipv4))
 
     elif lookup_type == 'single_ip':
