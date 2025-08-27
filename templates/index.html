@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IP & Phone Lookup</title>
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='images/index-bg.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', monospace;
+            color: black;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .retro-box {
+            background: #fff;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            width: 400px;
+            text-align: left;
+            box-shadow: 4px 4px 0px black;
+        }
+        .retro-box h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+        }
+        .retro-box input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 2px solid black;
+            font-family: 'Courier New', monospace;
+        }
+        .retro-box button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid black;
+            background: #e0e0e0;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .retro-box button:hover {
+            background: #c0c0c0;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="retro-box">
+        <h2>🔍 Show My IPs</h2>
+        <form action="/results" method="post">
+            <input type="hidden" name="type" value="my_ips">
+            <button type="submit">OK</button>
+        </form>
+    </div>
+
+    <div class="retro-box">
+        <h2>🌐 Lookup IP</h2>
+        <form action="/results" method="post">
+            <input type="hidden" name="type" value="single_ip">
+            <input type="text" name="input_value" placeholder="Enter IP (e.g., 8.8.8.8)" required>
+            <button type="submit">OK</button>
+        </form>
+    </div>
+
+    <div class="retro-box">
+        <h2>📱 Phone Number Lookup</h2>
+        <form action="/results" method="post">
+            <input type="hidden" name="type" value="phone_number">
+            <input type="text" name="input_value" placeholder="Enter number (+countrycode)" required>
+            <button type="submit">OK</button>
+        </form>
+    </div>
+
+</body>
+</html>

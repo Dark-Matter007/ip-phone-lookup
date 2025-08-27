@@ -1,0 +1,63 @@
+/* Page backgrounds */
+body.index-bg {
+    background: url("/static/images/index-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body.results-bg {
+    background: url("/static/images/results-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Retro popup box */
+.retro-box {
+    font-family: 'Press Start 2P', monospace;
+    background: #e0e0e0;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px #000;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0;
+    text-align: left;
+}
+
+.retro-header {
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.retro-body {
+    padding: 15px;
+    font-size: 12px;
+    line-height: 1.8;
+    background: #f8f8f8;
+}
+
+.retro-body .label {
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Retro OK button */
+.retro-btn {
+    display: block;
+    margin: 15px auto;
+    background: #c0c0c0;
+    border: 2px solid black;
+    padding: 6px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    box-shadow: 3px 3px 0px black;
+}
+
+.retro-btn:active {
+    box-shadow: none;
+    transform: translate(3px,3px);
+}

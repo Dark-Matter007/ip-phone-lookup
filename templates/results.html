@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="results-bg">
+    <div class="retro-box">
+        <div class="retro-header">LOOKUP RESULTS</div>
+        <div class="retro-body">
+            {% for label, value in results %}
+                <p><span class="label">{{ label }}:</span> {{ value }}</p>
+            {% endfor %}
+        </div>
+        <a href="/" class="retro-btn">OK</a>
+    </div>
+</body>
+</html>
